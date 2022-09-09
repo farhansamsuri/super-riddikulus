@@ -10,7 +10,6 @@ import { AuthContext } from "../context/AuthContext";
 const Login = () => {
 
     const {login} = useContext(AuthContext)
-    const {test} = useContext(AuthContext);
     const [fontsLoaded] = useFonts({
         'CroissantOne': require('../../assets/fonts/CroissantOne.ttf'),
     });
@@ -67,7 +66,6 @@ const Login = () => {
                             onChangeText = {setPassword}></TextInput>
                         <TouchableOpacity
                             onPress = {() => {login()}}>
-                                <Text>Login</Text>
                                 <Text>{test}</Text>
                             </TouchableOpacity>
                             </View>
