@@ -73,7 +73,7 @@ const WelcomeScreen = () => {
                 style={styles.image}>
                 <TouchableOpacity
                     onPress={() => {
-                    navigation.navigate('Houses');{Audio.setIsEnabledAsync(false)}}}
+                    navigation.navigate('Login');{Audio.setIsEnabledAsync(false)}}}
                     hitSlop={{ top: 1000, bottom: 1000, left: 1000, right: 1000 }}>
                     <Animated.View style={{opacity: fadeAnim}}>
                         <Text style={styles.welcomeText}>Tap Anywhere To Begin</Text>

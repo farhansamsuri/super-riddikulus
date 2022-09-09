@@ -2,9 +2,9 @@ import API from "../../API";
 import { useEffect, useState } from "react";
 import { View, StatusBar, Text, ImageBackground, TouchableOpacity, Image, FlatList} from 'react-native';
 import styles from "../styles/Stylesheet";
-import detailsBg from "../../assets/individualSpellBG.png";
-import spellScroll from "../../assets/kraftpaper.png";
-import disco from '../../assets/circle2.gif';
+import ingredientDetailsBg from "../../assets/ingredientsDetailsBg.png";
+import ingredientsScroll from "../../assets/ingredientsScroll.png";
+import glitter from '../../assets/glitter.gif';
 import { useRoute } from "@react-navigation/native";
 import { useNavigation } from '@react-navigation/native';
 import uuid from 'react-native-uuid';
@@ -53,9 +53,9 @@ const IndividualIngredient = () => {
  
 
     const Item = ({ title }) => (
-        <View style={styles.item}>
+        <View style={styles.ingredientItem2}>
             <TouchableOpacity style={styles.title} onPress={() => { navigation.navigate('IndividualElixir', { name: title }) }}>
-                <Text style={styles.magicText3}>{title}</Text>
+                <Text style={styles.ingredientText}>{title}</Text>
             </TouchableOpacity>
         </View>
     );
@@ -65,35 +65,27 @@ const IndividualIngredient = () => {
         <View style={{ flex: 1 }}>
             <StatusBar barStyle="light-content" />
             <ImageBackground
-                source={detailsBg}
+                source={ingredientDetailsBg}
                 resizeMode="cover"
                 style={styles.image}>
-                <Image source={disco}
-                    style={styles.disco} />
-                <Image source={spellScroll}
-                    style={styles.spellScroll} />
-                <View style={styles.box}>
-                    <Text style={styles.magicText}>{filteredIngredient[0] ? filteredIngredient[0].name : 'Nil'}</Text>
+                <Image source={glitter}
+                    style={styles.glitter} />
+                <Image source={ingredientsScroll}
+                    style={styles.ingredientsScroll} />
+                <View style={styles.ingredientsBox}>
+                    <Text style={styles.ingredientsText}>INGREDIENT:{"\n"}{filteredIngredient[0] ? filteredIngredient[0].name : 'Nil'}</Text>
                 </View>
-                <View style={styles.scroll}>
-                    <Text style={styles.text}>Type:
-                        <Text style={{ fontSize: 17 }}>{"\n"}{filteredIngredient[0] ? filteredIngredient[0].name : 'Nil'}</Text>
-                    </Text>
-                    <Text style={styles.text}>Used In:</Text>
+                <View style={styles.ingredientsScroll2}>
+                    <Text style={styles.ingredientsText}>ELIXIRS:</Text>
                     <View>
                 <FlatList
                         showsVerticalScrollIndicator
                         data={filteredElixir}
                         renderItem={({ item }) => { return <Item title={item.name} /> }}
                         keyExtractor={item => uuid.v4()}
-                        numColumns={2}>
+                        numColumns={1}>
                     </FlatList>
                 </View>
-                </View>
-                <View style={styles.return}>
-                    <TouchableOpacity onPress={() => { navigation.goBack() }}>
-                        <Text style={styles.magicText2}>&#8592; Return to list</Text>
-                    </TouchableOpacity>
                 </View>
             </ImageBackground>
         </View>

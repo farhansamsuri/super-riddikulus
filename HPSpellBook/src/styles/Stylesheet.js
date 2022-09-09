@@ -90,7 +90,28 @@ const styles = StyleSheet.create({
         top: 82,
     },
 
+    ingredientBar: {
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: "center",
+        width: 137,
+        height: 28,
+        left: 152,
+        top: 83,
+    },
+
     header: {
+        fontWeight: '400',
+        fontSize: 16,
+        color: '#FFFFFF',
+        // justifyContent: "center",
+        // alignItems: "center",
+        lineHeight: 23,
+        textTransform: 'uppercase',
+        fontFamily: "CroissantOne",
+    },
+
+    ingredientHeader: {
         fontWeight: '400',
         fontSize: 16,
         color: '#FFFFFF',
@@ -117,6 +138,15 @@ const styles = StyleSheet.create({
         height: 561,
     },
 
+    ingredientListContainer: {
+        position: 'absolute',
+        left: 85,
+        top: 217,
+        width: 214,
+        height: 323,
+        color: '#FFFFFF'
+    },
+
     list: {
         marginTop: 5,
 
@@ -134,6 +164,14 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         height: 60,
         width: 111,
+    },
+
+    ingredientItem: {
+        padding: 2,
+        marginVertical: 1,
+        marginHorizontal: 20,
+        height: 20,
+        width: 180,
     },
 
     itemElixir: {
@@ -212,6 +250,14 @@ const styles = StyleSheet.create({
 
     magicText3: {
         color: '#000000',
+        fontSize: 14,
+        lineHeight: 17,
+        letterSpacing: -0.3,
+        fontFamily: "CroissantOne"
+    },
+
+    ingredientText: {
+        color: '#FFFFFF',
         fontSize: 14,
         lineHeight: 17,
         letterSpacing: -0.3,
@@ -356,7 +402,60 @@ const styles = StyleSheet.create({
         top: 310, 
         width: 390, 
         height: 434
-    }
+    },
+
+    inputBox: {
+        position: 'absolute', 
+        top: 620, 
+        left: 170,
+        width: 390, 
+        height: 434
+    },
+
+    glitter: {
+        position: 'absolute',
+        width: 253,
+        height: 253,
+        top: -18,
+        left: 67,
+    },
+
+    ingredientsScroll: {
+        position: 'absolute',
+        top: 107,
+        width: 390,
+        height: 561,
+    },
+
+    ingredientsScroll2: {
+        position: 'absolute',
+        top: 319,
+        left: 67,
+        width: 250,
+        height: 150,
+    },
+
+    ingredientsBox: {
+        position: 'absolute',
+        height: 120,
+        width: 190,
+        left: 120,
+        top: 209,
+    },
+
+    ingredientsText: {
+        color: '#FFFFFF',
+        fontSize: 18,
+        fontFamily: "CroissantOne",
+    },
+
+    ingredientItem2: {
+        padding: 2,
+        marginVertical: 5,
+        marginHorizontal: 20,
+        height: 20,
+        width: 250,
+    },
 
 });
 

@@ -17,13 +17,18 @@ import ElixirList from './src/screens/ElixirList';
 import IndividualElixir from './src/screens/IndividualElixir';
 import Houses from './src/screens/Houses';
 import HouseDetails from './src/components/HouseDetails'; // TEMPORARY till I can fix the Modal function T^T
+import Login from './src/screens/Login';
+import Registration from './src/screens/Registration';
+import {AuthProvider} from './src/context/AuthContext';
+import AppNav from './src/navigation/AppNav';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName='Welcome'>
-                <Stack.Screen name='Welcome' component={WelcomeScreen} options={{ headerShown: false }} />
+        <AuthProvider>
+        {/* <NavigationContainer> */}
+            {/* <Stack.Navigator initialRouteName='Welcome'> */}
+{/*                 <Stack.Screen name='Welcome' component={WelcomeScreen} options={{ headerShown: false }} />
                 <Stack.Screen name='SpellTypes' component={SpellTypeScreen} options={{ animation: 'fade', headerShown: false }} />
                 <Stack.Screen name='SpellList' component={SpellList} options={{ headerShown: false }} />
                 <Stack.Screen name='IndividualSpell' component={IndividualSpell} options={{ headerShown: false }} />
@@ -38,7 +43,11 @@ export default function App() {
                 <Stack.Screen name='IngredientList' component={IngredientList} options={{ headerShown: false }} />
                 <Stack.Screen name='Houses' component={Houses} options={{ headerShown: false }} />
                 <Stack.Screen name='HouseDetails' component={HouseDetails} options={{ headerShown: false }} />
-            </Stack.Navigator>
-        </NavigationContainer>
+                <Stack.Screen name='Registration' component={Registration} options={{ headerShown: false }} />
+                <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} /> */}
+                <AppNav />
+            {/* </Stack.Navigator> */}
+        {/* </NavigationContainer> */}
+        </AuthProvider>
     );
 }
