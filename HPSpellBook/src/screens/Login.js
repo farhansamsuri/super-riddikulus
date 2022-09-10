@@ -22,6 +22,9 @@ const Login = () => {
     const navigation = useNavigation();
 
     useEffect(() => {
+        console.log(email, 'email');
+        console.log(password, 'password');
+
         const prepare = () => {
             setDetails(() => ({
                 email: email,
@@ -65,8 +68,8 @@ const Login = () => {
                             secureTextEntry
                             onChangeText = {setPassword}></TextInput>
                         <TouchableOpacity
-                            onPress = {() => {login()}}>
-                                <Text>{test}</Text>
+                            onPress = {() => {login(details)}}>
+                                <Text>Login</Text>
                             </TouchableOpacity>
                             </View>
             </ImageBackground>
