@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import mongoAPI from "../../config/mongoAPI";
 
-const WelcomeScreen = () => {
+const Registration = () => {
 
     const [fontsLoaded] = useFonts({
         'CroissantOne': require('../../assets/fonts/CroissantOne.ttf'),
@@ -17,37 +17,54 @@ const WelcomeScreen = () => {
 /*     const [firstName, setFirstName] = useState(null);
     const [lastName, setLastName] = useState(null); */
     const [email, setEmail] = useState(null);
+    const [hiddenEmail, setHiddenEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [details, setDetails] = useState({});
     const [passwordRepeat, setPasswordRepeat] = useState(null);
     const navigation = useNavigation();
 
-
-    useEffect(() => {
-        const prepare = () => {
-            setDetails(() => ({
-                username: username,
-                email: email,
-                password: password,
-            }));
-        };
-        prepare();
-    }, [username, email, password]);
-
     const registerOnPress = async() => {
+        const emailCheck = /\S+@\S+\.\S+/;
+
+        if (!username) {
+            Alert.alert('Please input a name');
+            return;
+        } else if(!emailCheck.test(email)) {
+            Alert.alert('Invalid email address');
+            return; 
+        } else if (!password || password.search(/[A-Z]/) < 0 || password.search(/[0-9]/) < 0 || password.search(/[a-z]/) < 0 || password.length < 8) {
+            Alert.alert('Password needs to minimally have : lowercase and uppercase letter, a number and longer than 7 characters')
+            return;
+        } else if (passwordRepeat !== password) {
+            Alert.alert('Passwords do not match!');
+            return;
+        }
 
         try {
+
             const res = await mongoAPI.post('/user', details);
             if(res) {
-                Alert.alert(`New user ${username} created! Pw is ${password} and email is ${email}`
+                Alert.alert(`New student ${username}, welcome!`
                 )
                 navigation.navigate('Login');
-                console.log('details', details)
+                console.log(`details: email - ${hiddenEmail}, name - ${username}`)
             }
         } catch (error) {
             alert(JSON.stringify(error.response.data.message))
         }
     }
+
+    useEffect(() => {
+        const prepare = () => {
+          email ? setHiddenEmail(email.toLowerCase()) : null;
+            setDetails(() => ({
+                username: username,
+                email: hiddenEmail,
+                password: password,
+            }));
+        };
+        prepare();
+    }, [username, password]);
 
     if (!fontsLoaded) {
         return null;
@@ -87,4 +104,4 @@ const WelcomeScreen = () => {
     );
 }
 
-export default WelcomeScreen; 
+export default Registration; 

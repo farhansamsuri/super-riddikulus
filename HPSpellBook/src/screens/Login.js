@@ -17,17 +17,18 @@ const Login = () => {
 
 /*     const [username, setUsername] = useState(null); */
     const [email, setEmail] = useState(null);
+    const [hiddenEmail, setHiddenEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [details, setDetails] = useState({});
     const navigation = useNavigation();
 
     useEffect(() => {
-        console.log(email, 'email');
-        console.log(password, 'password');
 
         const prepare = () => {
+            email ? setHiddenEmail(email.toLowerCase()) : null ;
+
             setDetails(() => ({
-                email: email,
+                email: hiddenEmail,
                 password: password,
             }));
         };

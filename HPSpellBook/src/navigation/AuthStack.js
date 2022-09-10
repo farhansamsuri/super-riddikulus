@@ -4,11 +4,11 @@ import React, {useContext} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-/* import AuthStack from './src/navigation/AuthStack';
-import AppStack from './src/navigation/AppStack'; */
+
 import WelcomeScreen from '../screens/WelcomeScreen';
 import Login from '../screens/Login';
 import { AuthContext } from '../context/AuthContext';
+import Registration from '../screens/Registration';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +24,7 @@ const AuthStack = () => {
 
     return (
         
-            <Stack.Navigator initialRouteName='Welcome'>
+            <Stack.Navigator initialRouteName='Login'>
                 {/* <Stack.Screen name='Welcome' component={WelcomeScreen} options={{ headerShown: false }} /> */}
 {/*                 <Stack.Screen name='SpellTypes' component={SpellTypeScreen} options={{ animation: 'fade', headerShown: false }} />
                 <Stack.Screen name='SpellList' component={SpellList} options={{ headerShown: false }} />
@@ -39,8 +39,8 @@ const AuthStack = () => {
                 <Stack.Screen name='IndividualIngredient' component={IndividualIngredient} options={{ headerShown: false }} />
                 <Stack.Screen name='IngredientList' component={IngredientList} options={{ headerShown: false }} />
                 <Stack.Screen name='Houses' component={Houses} options={{ headerShown: false }} />
-                <Stack.Screen name='HouseDetails' component={HouseDetails} options={{ headerShown: false }} />
-                <Stack.Screen name='Registration' component={Registration} options={{ headerShown: false }} /> */}
+                <Stack.Screen name='HouseDetails' component={HouseDetails} options={{ headerShown: false }} /> */}
+                <Stack.Screen name='Registration' component={Registration} options={{ headerShown: false }} />
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
             </Stack.Navigator>
     )
