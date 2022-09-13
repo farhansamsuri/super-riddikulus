@@ -14,8 +14,9 @@ const Stack = createNativeStackNavigator();
 
 const AppNav = () => {
 
-    const {isLoading, userToken} = useContext(AuthContext);
+    const {isLoading, userToken, userInfo} = useContext(AuthContext);
     console.log("userToken", userToken)
+    console.log("userInfo", userInfo)
     if ( isLoading ) {
         return(
         <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>

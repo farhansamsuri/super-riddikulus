@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {createContext, useEffect, useState} from 'react';
 import { Alert } from 'react-native';
 import mongoAPI from '../../config/mongoAPI';
+import localAPI from '../../config/localAPI';
 
 export const AuthContext = createContext();
 
@@ -14,7 +15,6 @@ export const AuthProvider = ({children}) => {
 
     const login = async(details) => {
         setIsLoading(true);
-        console.log(details)
 /*         if (!details.email) {
             Alert.alert('Please input a name');
             return;
@@ -26,7 +26,7 @@ export const AuthProvider = ({children}) => {
 //lags/hangs if above condition is used
 
        try{ 
-        const res = await mongoAPI.post('/user/login', 
+        const res = await localAPI.post('/user/login', 
             details);
             if(res) {
                 let userInfo = res.data;
@@ -44,6 +44,20 @@ export const AuthProvider = ({children}) => {
         }
         setIsLoading(false);
     }
+
+    const addSpell = async (spell) => {
+        setIsLoading(true);
+        try{
+        const res = await localAPI.put('/spells', /* userInfo.data.id */{user:userInfo.data.id, body:spell});
+        if (res){
+            console.log('addSpell data:', res.data)
+            console.log('userInfo', userInfo)
+        }
+        }  catch (error) {
+            console.log(`save error: ${error}`);
+    }
+    setIsLoading(false);
+}
 
     const logout = () => {
         setIsLoading(true);
@@ -81,7 +95,7 @@ export const AuthProvider = ({children}) => {
     }, [])
 
     return (
-        <AuthContext.Provider value= {{login, logout, isLoading, userToken}}>
+        <AuthContext.Provider value= {{login, logout, isLoading, userToken, userInfo, addSpell}}>
             {children}
         </AuthContext.Provider>
         
