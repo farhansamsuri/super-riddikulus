@@ -26,7 +26,7 @@ export const AuthProvider = ({children}) => {
 //lags/hangs if above condition is used
 
        try{ 
-        const res = await localAPI.post('/user/login', 
+        const res = await mongoAPI.post('/user/login', 
             details);
             if(res) {
                 let userInfo = res.data;
