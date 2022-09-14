@@ -14,7 +14,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 const IndividualSpell = () => {
 
-    const {addSpell} = useContext(AuthContext)
+    const {addSpell, deleteSpell} = useContext(AuthContext)
     const navigation = useNavigation();
     const [spellList, setSpellList] = useState([]);
 
@@ -66,6 +66,13 @@ const IndividualSpell = () => {
                                 id: filteredSpell[0].id,
                                 name: filteredSpell[0].name})}}>
                                 <Text style={[{left: 206}, styles.saveText]}>Save Spell</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity 
+                            onPress = {() => {deleteSpell(
+                                filteredSpell[0].id
+                               )}}>
+                                <Text style={[{left: 206, top:30}, styles.saveText]}>Delete Spell</Text>
                         </TouchableOpacity>
 
                 </View>

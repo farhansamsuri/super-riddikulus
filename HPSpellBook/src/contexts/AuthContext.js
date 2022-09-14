@@ -62,6 +62,20 @@ export const AuthProvider = ({children}) => {
     setIsLoading(false);
 }
 
+const deleteSpell = async (spell) => {
+    setIsLoading(true);
+    try{
+        console.log('HELP:', userInfo.data.id)
+    const res = await mongoAPI.delete('/spells', {data: {user: userInfo.data.id, body: spell}});
+    if (res){
+        console.log('deleteSpell data:', res.data)
+    }
+    }  catch (error) {
+        console.log(`save error: ${error}`);
+}
+setIsLoading(false);
+}
+
 const addElixir = async (elixir) => {
     setIsLoading(true);
     try{
@@ -112,7 +126,7 @@ setIsLoading(false);
     }, [])
 
     return (
-        <AuthContext.Provider value= {{login, logout, addSpell, addElixir, isLoading, userToken}}>
+        <AuthContext.Provider value= {{login, logout, addSpell, deleteSpell, addElixir, isLoading, userToken}}>
             {children}
         </AuthContext.Provider>
         
