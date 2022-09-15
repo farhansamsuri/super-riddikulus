@@ -131,7 +131,7 @@ export const AuthProvider = ({ children }) => {
             );
             if (res) {
                 console.log('editProfile data:', res.data);
-                setUserInfo({...userInfo, data:details})
+                setUserInfo({...userInfo, data: {...userInfo.data, ...details}})
                 Alert.alert('Profile updated!');
             }
             console.log('userInfo update:', userInfo)

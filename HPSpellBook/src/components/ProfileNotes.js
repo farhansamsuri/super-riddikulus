@@ -20,7 +20,7 @@ const ProfileNotes = (props) => {
                 'Authorization': `Bearer ${userToken}`
             }
         });
-        const notesList = data.data.filter(n => n.userId === props.userInfo.id);
+        const notesList = data.data.filter(n => n.userId === props.userInfo.data.id);
         const sortedNotesList = notesList.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)); // sorts note list based on most recently updated
 
         if (status === 200) {

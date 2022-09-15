@@ -32,7 +32,7 @@ const EditProfile = () => {
 
 
     useEffect(() => {
-        console.log('userInfo:', userInfo)
+        console.log('userInfo editProf:', userInfo)
     }, [account])
 
     return (
@@ -175,6 +175,7 @@ const EditProfile = () => {
                     </ImageBackground>
 
                     <TouchableOpacity
+                    onPress = {() => editAccount({house: account.house})}
                     style= {[{margin:15, left:70}, styles.editProfilePress]}>
                         <Text style={styles.editText}>Change House</Text>
                     </TouchableOpacity>
