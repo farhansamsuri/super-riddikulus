@@ -17,7 +17,7 @@ import { AuthContext } from "../contexts/AuthContext";
 const IndividualElixir = (props) => {
 
     const { addElixir, deleteElixir, userToken } = useContext(AuthContext)
-    const navigation = useNavigation();
+    const navigation = useNavigation(); 
     const [elixirList, setElixirList] = useState([]);
     const [elixirDifficulty, setElixirDifficulty] = useState('');
     const [bookmarkedElixirs, setBookmarkedElixirs] = useState([]);

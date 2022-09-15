@@ -18,6 +18,8 @@ import { AuthContext } from '../contexts/AuthContext';
 import ProfileNotes from '../components/ProfileNotes';
 import ProfileSpells from '../components/ProfileSpells';
 import ProfileElixirs from '../components/ProfileElixirs';
+import { useNavigation } from '@react-navigation/native';
+
 
 const NotesList = () => {
 
@@ -32,6 +34,7 @@ const NotesList = () => {
         gender: null,
         house: null
     })
+    const navigation = useNavigation();
 
     const getUserInfo = async () => {
         const res = await AsyncStorage.getItem('userInfo');
@@ -60,7 +63,8 @@ const NotesList = () => {
                     source={userProfileBar}
                     style={styles.userBar}>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress = {() => {navigation.navigate('EditProfile')}}>
                         <Text style={styles.changePW}>
                             Edit Profile
                         </Text>

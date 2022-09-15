@@ -684,7 +684,7 @@ const styles = StyleSheet.create({
 
     userBar: {
         position: 'absolute',
-        alignItems: 'space-evenly',
+        alignItems: 'space-between',
         flexDirection: 'row',
         top: 58,
         width: 220,
@@ -803,7 +803,29 @@ const styles = StyleSheet.create({
         fontSize: 15,
         lineHeight: 19, 
         color: '#642210'
-    }
+    },
+
+    inputEditProfile: {
+        fontFamily: 'CroissantOne',
+        textAlignVertical: 'center'
+    },
+
+    editProfilePress : {
+        height:25,
+        width:150,
+        border: '2px solid black',
+        backgroundColor: '#503505',
+    },
+
+    editText: {
+        fontFamily: 'CroissantOne',
+        fontSize: 15,
+        color: '#FFFFFF',
+        alignItems: 'center',
+        borderWidth:1, 
+        borderColor:'black',
+        textAlign: 'center'
+    }, 
 
 });
 

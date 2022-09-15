@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { AuthContext } from '../contexts/AuthContext';
 import Profile from '../screens/Profile';
+import EditProfile from '../screens/EditProfile';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,6 +24,7 @@ const AppStack = () => {
     return (
         <Stack.Navigator initialRouteName='Profile'>
             <Stack.Screen name='Profile' component={Profile} options={{ headerShown: false }} />
+            <Stack.Screen name='EditProfile' component={EditProfile} options={{ headerShown: false }} />
         </Stack.Navigator>
     )
 }
